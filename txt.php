@@ -46,15 +46,15 @@ MY_TEXT = "My text"
 
 */
 
-	final class _txt
-	{
-	  	
-	  	private static	$_text			= array();
-	  	private static 	$_instance;
-	
-	  	private function __construct($ini_file_path)
-	  	{
-	  	
+final class _txt
+{
+  	
+  	private static	$_text			= array();
+  	private static 	$_instance;
+
+  	private function __construct($ini_file_path)
+  	{
+  	
 	    	try 
 	    	{
 	    	
@@ -69,32 +69,32 @@ MY_TEXT = "My text"
 	    		die( $e->getMessage() );
 	    	
 	    	}
-	    	
-	  	}
-	  	
-	  	public static function import_ini($ini_file_path)
-	  	{
-	    	
+    	
+  	}
+  	
+  	public static function import_ini($ini_file_path)
+  	{
+    	
 	    	if ( self::$_instance instanceof _txt )
 	      		return self::$_instance;
 	      	else 
 	      		self::$_instance = new self($ini_file_path);
-	    	
-	  	}
-	  
-	  	public static function _($string, $addslashes = false)
-	  	{
-	  			
-	  		if ( isset(self::$_text[$string]) )	
-	  		{
-	  			if ($addslashes)
-	  				return addslashes(self::$_text[$string]);
-	  			else   		
-	  				return self::$_text[$string];
-	  		}
-	  		else 
-	    		return $string;
-	    	
-	  	}
-	  	
-	}
+    	
+  	}
+  
+  	public static function _($string, $addslashes = false)
+  	{
+  			
+  		if ( isset(self::$_text[$string]) )	
+  		{
+  			if ($addslashes)
+  				return addslashes(self::$_text[$string]);
+  			else   		
+  				return self::$_text[$string];
+  		}
+  		else 
+    		return $string;
+    	
+  	}
+  	
+}
